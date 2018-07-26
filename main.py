@@ -1,3 +1,11 @@
+"""
+MongoDB
+simple code
+Author : Oleksii Savchenko
+2018
+
+"""
+
 import requests
 import lxml
 import pymongo
@@ -9,7 +17,10 @@ collection = client.test_db.my_collection
 while 1:
     name = input('Введите имя :')
     mail = input("Введите почту :")
-    password = input("введите пароль :")
+    password = input("Введите пароль :")
     id = mail
 
-    collection.insert_one({'id': id, "name": name, "email": mail, "password": password})
+    try:
+        collection.insert_one({'id': id, "name": name, "email": mail, "password": password})
+    except Exception:
+        print('Что то пошло не так ')
